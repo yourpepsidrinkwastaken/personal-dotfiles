@@ -1,0 +1,134 @@
+@define-color text            @on_surface;
+@define-color background-alt  alpha(@surface, .4);
+@define-color selected        @primary;
+@define-color hover           alpha(@primary, .4);
+@define-color urgent          @error;
+
+/* ─── Global reset ───────────────────────────────────────────────── */
+/* NOTE: color: @text MUST come after all: unset, not before it.
+   all: unset resets every property declared before it in the same rule. */
+* {
+  all: unset;
+  color:       @text;
+  font-size:   14px;
+  font-family: "JetBrainsMono Nerd Font Propo";
+  transition:  200ms;
+}
+
+/* ─── Floating notification rows ─────────────────────────────────── */
+
+.notification-row {
+  outline: none;
+  margin:  0;
+  padding: 0;
+}
+
+.floating-notifications.background .notification-row .notification-background {
+  background:    alpha(@background, .55);
+  box-shadow:    0 0 8px 0 rgba(0,0,0,.6);
+  border:        1px solid @selected;
+  border-radius: 24px;
+  margin:        16px;
+  padding:       0;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification {
+  padding:       6px;
+  border-radius: 12px;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification.critical {
+  border: 2px solid @urgent;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification .notification-content {
+  margin: 14px;
+}
+
+/* ─── Default action (the main clickable body of the notification) ── */
+
+.notification-default-action {
+  border-radius: 12px;
+  padding:       0;
+  background:    transparent;
+}
+
+.notification-default-action:hover {
+  background: alpha(@primary, .08);
+}
+
+/* ─── Action buttons ─────────────────────────────────────────────── */
+/*
+   ROOT CAUSE FIX: The GTK3-era selector chain
+     .notification > *:last-child > * .notification-action
+   breaks in GTK4 because the widget tree changed. In GTK4, action
+   buttons are direct children of the notification box, so the
+   "> *:last-child > * " chain matches nothing.
+
+   The correct GTK4 selector is simply:
+     .notification .notification-action
+   (confirmed working against swaync GTK4 in upstream issue #692).
+*/
+
+.notification .notification-action {
+  border-radius:    8px;
+  background-color: @background-alt;
+  margin:           6px;
+  padding:          8px;
+  border:           1px solid transparent;
+}
+
+.notification .notification-action:hover {
+  background-color: @hover;
+  border:           1px solid @selected;
+}
+
+.notification .notification-action:active {
+  background-color: @selected;
+  color:            @background;
+}
+
+/* ─── Close button ───────────────────────────────────────────────── */
+
+.notification-background .close-button {
+  margin:           6px;
+  padding:          2px;
+  border-radius:    6px;
+  background-color: transparent;
+  border:           1px solid transparent;
+}
+
+.notification-background .close-button:hover {
+  background-color: @selected;
+}
+
+.notification-background .close-button:active {
+  background-color: @selected;
+  color:            @background;
+}
+
+/* ─── Content typography ─────────────────────────────────────────── */
+
+.image {
+  margin: 10px 20px 10px 0;
+}
+
+.summary {
+  font-weight: 800;
+  font-size:   1rem;
+}
+
+.body {
+  font-size: 0.8rem;
+}
+
+/* ─── Progress bars ──────────────────────────────────────────────── */
+
+.notification.critical progress {
+  background-color: @selected;
+}
+
+.notification.low progress,
+.notification.normal progress {
+  background-color: @selected;
+}

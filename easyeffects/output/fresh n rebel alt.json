@@ -1,0 +1,159 @@
+{
+    "output": {
+        "bass_enhancer#0": {
+            "amount": 2.0,
+            "blend": 0.0,
+            "bypass": false,
+            "floor": 16.0,
+            "floor-active": false,
+            "harmonics": 8.599999999999998,
+            "input-gain": 0.0,
+            "output-gain": 0.0,
+            "scope": 100.0
+        },
+        "bass_loudness#0": {
+            "bypass": false,
+            "input-gain": 0.0,
+            "link": -6.099999999999996,
+            "loudness": -2.7000000000000006,
+            "output": -5.199999999999999,
+            "output-gain": 0.0
+        },
+        "blocklist": [],
+        "crystalizer#0": {
+            "band0": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band1": {
+                "bypass": false,
+                "intensity": -20.0,
+                "mute": false
+            },
+            "band10": {
+                "bypass": false,
+                "intensity": -21.0,
+                "mute": false
+            },
+            "band11": {
+                "bypass": false,
+                "intensity": -19.0,
+                "mute": false
+            },
+            "band12": {
+                "bypass": false,
+                "intensity": -24.0,
+                "mute": false
+            },
+            "band2": {
+                "bypass": false,
+                "intensity": -21.0,
+                "mute": false
+            },
+            "band3": {
+                "bypass": false,
+                "intensity": -10.0,
+                "mute": false
+            },
+            "band4": {
+                "bypass": false,
+                "intensity": -4.0,
+                "mute": false
+            },
+            "band5": {
+                "bypass": false,
+                "intensity": -14.0,
+                "mute": false
+            },
+            "band6": {
+                "bypass": false,
+                "intensity": -20.0,
+                "mute": false
+            },
+            "band7": {
+                "bypass": false,
+                "intensity": -12.0,
+                "mute": false
+            },
+            "band8": {
+                "bypass": false,
+                "intensity": -13.0,
+                "mute": false
+            },
+            "band9": {
+                "bypass": false,
+                "intensity": -20.0,
+                "mute": false
+            },
+            "bypass": false,
+            "input-gain": 0.0,
+            "output-gain": 0.0
+        },
+        "filter#0": {
+            "balance": 0.9999999999999999,
+            "bypass": false,
+            "equal-mode": "IIR",
+            "frequency": 254.0,
+            "gain": 0.25000000000000006,
+            "input-gain": 0.0,
+            "mode": "BWC (BT)",
+            "output-gain": 0.0,
+            "quality": 100.0,
+            "slope": "x4",
+            "type": "High-shelf",
+            "width": 6.0
+        },
+        "limiter#0": {
+            "alr": true,
+            "alr-attack": 0.1,
+            "alr-knee": 8.0,
+            "alr-release": 1000.0,
+            "attack": 20.0,
+            "bypass": true,
+            "dithering": "None",
+            "external-sidechain": false,
+            "gain-boost": true,
+            "input-gain": 2.5,
+            "lookahead": 20.0,
+            "mode": "Herm Wide",
+            "output-gain": 1.0,
+            "oversampling": "Half x2(2L)",
+            "release": 20.0,
+            "sidechain-preamp": 0.0,
+            "stereo-link": 0.0,
+            "threshold": 0.0
+        },
+        "maximizer#0": {
+            "bypass": false,
+            "input-gain": 0.0,
+            "output-gain": 0.0,
+            "release": 25.0,
+            "threshold": -0.5
+        },
+        "pitch#0": {
+            "anti-alias": false,
+            "bypass": true,
+            "cents": 0.0,
+            "input-gain": 0.0,
+            "octaves": 0.0,
+            "output-gain": 0.0,
+            "overlap-length": 8,
+            "quick-seek": false,
+            "rate-difference": 0.0,
+            "seek-window": 15,
+            "semitones": 1.0,
+            "sequence-length": 40,
+            "tempo-difference": 0.0
+        },
+        "plugins_order": [
+            "crystalizer#0",
+            "pitch#0",
+            "bass_loudness#0",
+            "filter#0",
+            "bass_enhancer#0",
+            "limiter#0",
+            "maximizer#0"
+        ]
+    }
+}

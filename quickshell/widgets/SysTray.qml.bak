@@ -1,0 +1,68 @@
+import ".."
+
+import QtQuick
+import QtQuick.Layouts
+import Quickshell
+import Quickshell.Services.SystemTray
+
+Rectangle {
+    id: trayBackground
+    implicitWidth: trayRow.implicitWidth + 12
+    implicitHeight: trayRow.implicitHeight + 4
+    radius: 8
+    color: Colors.md3.surface_container
+    required property var parentWindow
+
+    TrayContextMenu {
+      id: contextMenu
+      parentWindow: trayBackground.parentWindow
+    }
+
+    RowLayout {
+        id: trayRow
+        anchors.centerIn: parent 
+        spacing: 0
+
+        property var filteredItems: {
+            const blocked = ["polychromatic-tray-applet", "nm-applet", "blueman", "Free Download Manager"]
+            return SystemTray.items.values.filter(item => !blocked.includes(item.id))
+        }
+
+        Component.onCompleted: {
+            for (const item of SystemTray.items.values) {
+                console.log("tray item available — id:", item.id, "title:", item.title)
+            }
+        }
+
+        Repeater {
+            model: trayRow.filteredItems
+
+            Item {
+                id: trayItem
+                required property var modelData
+                implicitWidth: 20
+                implicitHeight: 20
+
+                Image {
+                    anchors.centerIn: parent
+                    source: trayItem.modelData.icon
+                    sourceSize: Qt.size(12, 12)
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    acceptedButtons: Qt.LeftButton | Qt.RightButton
+                    onClicked: mouse => {
+                        if (mouse.button === Qt.LeftButton) {
+                            trayItem.modelData.activate()
+                          } else if (mouse.button === Qt.RightButton) {
+                            const pos = trayItem.mapToItem(trayBackground.parentWindow.contentItem, mouseX, mouseY)
+                            contextMenu.openAt(modelData.menu, pos.x, pos.y)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,312 @@
+@define-color text            @on_surface;
+@define-color background-alt  alpha(@surface, .4);
+@define-color selected        @primary;
+@define-color hover           alpha(@primary, .4);
+@define-color urgent          @error;
+
+/* =====================================================================
+   BUG FIX: color: @text must come AFTER all: unset (same bug as in
+   notifications.css — the original declaration was being discarded).
+   ===================================================================== */
+* {
+  all: unset;
+  color:       @text;
+  font-size:   14px;
+  font-family: "JetBrainsMono Nerd Font Propo";
+  transition:  200ms;
+}
+
+button {
+  min-width:  0;
+  min-height: 0;
+}
+
+/* =====================================================================
+   GTK4 FIX: The control center renders notifications inside a native
+   GtkListView. GTK4/Adwaita attaches its own hover, focus, and selected
+   backgrounds to listview > row at a high internal priority.  Without
+   this reset block those native states bleed into your notification rows
+   and notification-group containers, causing:
+     - Unexpected highlight flashes on hover
+     - Grouped notification headers appearing with a solid Adwaita bg
+     - Group expand/collapse buttons having wrong colors
+
+   This block MUST appear before any of your custom rules so your own
+   .notification-row:hover etc. can take over cleanly.
+   ===================================================================== */
+list,
+listview,
+row,
+list row,
+listview row,
+listview > row,
+listview row:selected,
+listview row:hover,
+listview row:focus,
+listview row:active,
+listview row:focus:hover {
+  background-color: transparent;
+  background-image: none;
+  box-shadow:       none;
+  outline:          none;
+}
+
+/* ─── Misc ───────────────────────────────────────────────────────── */
+
+.blank-window {
+  background: transparent;
+}
+
+/* ─── Control center shell ───────────────────────────────────────── */
+
+.control-center {
+  background:    alpha(@background, .85);
+  border-radius: 24px;
+  border:        1px solid @selected;
+  box-shadow:    0 0 10px 0 rgba(0,0,0,.6);
+  margin:        18px;
+  padding:       12px;
+}
+
+/* ─── Notification cards in the CC ──────────────────────────────── */
+
+.control-center .notification-row .notification-background,
+.control-center .notification-row .notification-background .notification.critical {
+  background-color: @background-alt;
+  border-radius:    16px;
+  margin:           4px 0;
+  padding:          4px;
+}
+
+.control-center .notification-row .notification-background .notification.critical {
+  color: @urgent;
+}
+
+/* BUG FIX: hover on notification rows was never defined.
+   This is the most visible "hover is broken" case in the CC.         */
+.control-center .notification-row:hover .notification-background {
+  background-color: alpha(@primary, .15);
+}
+
+.control-center .notification-row .notification-background .notification .notification-content {
+  margin:  6px;
+  padding: 8px 6px 2px 2px;
+}
+
+/* ─── Action buttons ─────────────────────────────────────────────── */
+/* Same GTK4 fix as notifications.css: drop the > *:last-child > *
+   chain entirely, use the flat .notification .notification-action
+   selector that is confirmed working in GTK4 swaync.               */
+
+.notification .notification-action {
+  background:    alpha(@primary, .6);
+  color:         @on_primary;
+  border-radius: 12px;
+  margin:        6px;
+  padding:       8px;
+  border:        1px solid transparent;
+}
+
+.notification .notification-action:hover {
+  background: @selected;
+}
+
+.notification .notification-action:active {
+  background-color: @selected;
+}
+
+/* Close button */
+.control-center .notification-row .notification-background .close-button {
+  background:    transparent;
+  border-radius: 6px;
+  color:         @text;
+  margin:        0;
+  padding:       4px;
+}
+
+.control-center .notification-row .notification-background .close-button:hover {
+  background-color: @selected;
+}
+
+.control-center .notification-row .notification-background .close-button:active {
+  background-color: @selected;
+}
+
+/* ─── Progress bars ──────────────────────────────────────────────── */
+
+progressbar,
+progress,
+trough {
+  border-radius: 12px;
+}
+
+progressbar {
+  background-color: rgba(255,255,255,.1);
+}
+
+/* ─── Grouped notifications ──────────────────────────────────────── */
+
+/* NOTE: The listview row reset above is what makes these work in
+   GTK4. Without it, GTK4's native row styles stomp over these rules. */
+
+.notification-group {
+  margin: 2px 8px;
+}
+
+.notification-group-headers {
+  font-weight:    bold;
+  font-size:      1.25rem;
+  color:          @text;
+  letter-spacing: 2px;
+}
+
+.notification-group-icon {
+  color: @text;
+}
+
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background:    transparent;
+  color:         @text;
+  margin:        4px;
+  border-radius: 6px;
+  padding:       4px;
+}
+
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+  background: @hover;
+}
+
+/* ─── Widget: title bar ──────────────────────────────────────────── */
+
+.widget-title {
+  font-size: 1.2em;
+  margin:    6px;
+}
+
+.widget-title button {
+  background:    @background-alt;
+  border-radius: 6px;
+  padding:       4px 16px;
+}
+
+.widget-title button:hover {
+  background-color: @hover;
+}
+
+.widget-title button:active {
+  background-color: @selected;
+}
+
+/* ─── Widget: do not disturb ─────────────────────────────────────── */
+
+.widget-dnd {
+  margin:    6px;
+  font-size: 1.2rem;
+}
+
+.widget-dnd > switch {
+  background:    @background-alt;
+  font-size:     initial;
+  border-radius: 8px;
+  box-shadow:    none;
+  padding:       2px;
+}
+
+.widget-dnd > switch:hover {
+  background: @hover;
+}
+
+.widget-dnd > switch:checked {
+  background: @selected;
+}
+
+.widget-dnd > switch:checked:hover {
+  background: @hover;
+}
+
+.widget-dnd > switch slider {
+  background:    @text;
+  border-radius: 6px;
+}
+
+/* ─── Widget: buttons grid ───────────────────────────────────────── */
+
+.widget-buttons-grid {
+  font-size:     x-large;
+  padding:       6px 2px;
+  margin:        6px;
+  border-radius: 12px;
+  background:    @background-alt;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  margin:        4px 10px;
+  padding:       6px 12px;
+  background:    transparent;
+  border-radius: 8px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @hover;
+}
+
+/* ─── Widget: MPRIS ──────────────────────────────────────────────── */
+
+.widget-mpris {
+  background:    @background-alt;
+  border-radius: 16px;
+  color:         @text;
+  margin:        20px 6px;
+}
+
+.widget-mpris-player {
+  background-color: @surface_container_highest;
+  border-radius:    22px;
+  padding:          6px 14px;
+  margin:           6px;
+}
+
+.widget-mpris > box > button {
+  color:         @text;
+  border-radius: 20px;
+}
+
+.widget-mpris button {
+  color: alpha(@text, .6);
+}
+
+.widget-mpris button:hover {
+  color: @text;
+}
+
+.widget-mpris-album-art {
+  border-radius: 16px;
+}
+
+.widget-mpris-title {
+  font-weight: 700;
+  font-size:   1rem;
+}
+
+.widget-mpris-subtitle {
+  font-weight: 500;
+  font-size:   0.8rem;
+}
+
+picture.mpris-background {
+  opacity: 0;
+}
+
+/* ─── Widget: volume ─────────────────────────────────────────────── */
+
+/* BUG FIX: @background-sec was never defined anywhere — replaced with
+   @background-alt which is the closest equivalent in this theme.     */
+.widget-volume {
+  background:    @background-alt;
+  color:         @text;
+  padding:       4px;
+  margin:        6px;
+  border-radius: 6px;
+

@@ -1,0 +1,10 @@
+{
+  "workspace": {
+    "library": [
+      "/home/pepushi/dotfiles/hypr"
+    ]
+  },
+  "diagnostics": {
+    "globals": ["hl"]
+  }
+}

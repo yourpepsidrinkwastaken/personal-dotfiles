@@ -1,0 +1,6 @@
+{
+    "device": "alsa_output.usb-GTAI_Fresh__n_Rebel_3AGH300_00000000000000-00.analog-stereo",
+    "device-description": "Fresh 'n Rebel 3AGH300 Analog Stereo",
+    "device-profile": "Analog Output",
+    "preset-name": "testing"
+}

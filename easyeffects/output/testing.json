@@ -1,0 +1,296 @@
+{
+    "output": {
+        "bass_enhancer#0": {
+            "amount": 1.5,
+            "blend": 0.0,
+            "bypass": true,
+            "floor": 20.0,
+            "floor-active": false,
+            "harmonics": 8.5,
+            "input-gain": 0.0,
+            "output-gain": 0.0,
+            "scope": 127.0
+        },
+        "bass_loudness#0": {
+            "bypass": true,
+            "input-gain": 0.0,
+            "link": -9.1,
+            "loudness": -3.1,
+            "output": -5.6,
+            "output-gain": 0.0
+        },
+        "blocklist": [],
+        "crystalizer#0": {
+            "adaptive-intensity": true,
+            "band0": {
+                "bypass": false,
+                "intensity": 2.0,
+                "mute": false
+            },
+            "band1": {
+                "bypass": false,
+                "intensity": 3.0,
+                "mute": false
+            },
+            "band10": {
+                "bypass": false,
+                "intensity": -40.0,
+                "mute": true
+            },
+            "band11": {
+                "bypass": false,
+                "intensity": -40.0,
+                "mute": true
+            },
+            "band12": {
+                "bypass": false,
+                "intensity": -26.0,
+                "mute": true
+            },
+            "band2": {
+                "bypass": false,
+                "intensity": 4.0,
+                "mute": false
+            },
+            "band3": {
+                "bypass": false,
+                "intensity": -1.0,
+                "mute": false
+            },
+            "band4": {
+                "bypass": false,
+                "intensity": -6.0,
+                "mute": false
+            },
+            "band5": {
+                "bypass": false,
+                "intensity": 0.0,
+                "mute": false
+            },
+            "band6": {
+                "bypass": false,
+                "intensity": -31.0,
+                "mute": false
+            },
+            "band7": {
+                "bypass": false,
+                "intensity": -7.0,
+                "mute": false
+            },
+            "band8": {
+                "bypass": false,
+                "intensity": -15.0,
+                "mute": false
+            },
+            "band9": {
+                "bypass": false,
+                "intensity": -19.0,
+                "mute": false
+            },
+            "bypass": true,
+            "fixed-quantum": false,
+            "input-gain": 0.0,
+            "output-gain": 0.0,
+            "oversampling": true,
+            "oversampling-quality": 5.0,
+            "transition-band": 120.0
+        },
+        "equalizer#0": {
+            "balance": 0.0,
+            "bypass": false,
+            "decramp": "Off",
+            "input-gain": 0.0,
+            "left": {
+                "band0": {
+                    "frequency": 138.0,
+                    "gain": 4.900000000000001,
+                    "mode": "LRX (BT)",
+                    "mute": false,
+                    "q": 2.42,
+                    "slope": "x1",
+                    "solo": false,
+                    "type": "Lo-shelf",
+                    "width": 4.0
+                },
+                "band1": {
+                    "frequency": 4400.0,
+                    "gain": -4.38,
+                    "mode": "RLC (BT)",
+                    "mute": false,
+                    "q": 4.38,
+                    "slope": "x1",
+                    "solo": false,
+                    "type": "Allpass",
+                    "width": 4.0
+                }
+            },
+            "mode": "IIR",
+            "num-bands": 2,
+            "output-gain": 0.0,
+            "pitch-left": 0.0,
+            "pitch-right": 0.0,
+            "right": {
+                "band0": {
+                    "frequency": 138.0,
+                    "gain": 4.900000000000001,
+                    "mode": "LRX (BT)",
+                    "mute": false,
+                    "q": 2.42,
+                    "slope": "x1",
+                    "solo": false,
+                    "type": "Lo-shelf",
+                    "width": 4.0
+                },
+                "band1": {
+                    "frequency": 4400.0,
+                    "gain": -4.38,
+                    "mode": "RLC (BT)",
+                    "mute": false,
+                    "q": 4.38,
+                    "slope": "x1",
+                    "solo": false,
+                    "type": "Allpass",
+                    "width": 4.0
+                }
+            },
+            "split-channels": false
+        },
+        "exciter#0": {
+            "amount": -25.0,
+            "blend": 0.0,
+            "bypass": false,
+            "ceil": 16000.0,
+            "ceil-active": false,
+            "harmonics": 2.0,
+            "input-gain": 0.0,
+            "output-gain": 0.0,
+            "scope": 6000.0
+        },
+        "expander#0": {
+            "attack": 20.0,
+            "bypass": true,
+            "dry": -80.01,
+            "hpf-frequency": 10.0,
+            "hpf-mode": "Off",
+            "input-gain": 0.0,
+            "input-to-link": -80.01,
+            "input-to-sidechain": -80.01,
+            "knee": -6.0,
+            "link-to-input": -80.01,
+            "link-to-sidechain": -80.01,
+            "lpf-frequency": 20000.0,
+            "lpf-mode": "Off",
+            "makeup": 0.0,
+            "mode": "Upward",
+            "output-gain": 0.0,
+            "ratio": 4.0,
+            "release": 100.0,
+            "release-threshold": -80.01,
+            "sidechain": {
+                "lookahead": 0.0,
+                "mode": "Peak",
+                "preamp": 0.0,
+                "reactivity": 10.0,
+                "source": "Middle",
+                "stereo-split-source": "Left/Right",
+                "type": "Internal"
+            },
+            "sidechain-to-input": -80.01,
+            "sidechain-to-link": -80.01,
+            "stereo-split": false,
+            "threshold": -12.0,
+            "wet": 0.0
+        },
+        "limiter#0": {
+            "alr": false,
+            "alr-attack": 0.1,
+            "alr-knee": 8.0,
+            "alr-knee-smooth": -5.0,
+            "alr-release": 1000.0,
+            "attack": 20.0,
+            "bypass": false,
+            "dithering": "None",
+            "gain-boost": false,
+            "input-gain": 0.0,
+            "input-to-link": -80.01,
+            "input-to-sidechain": -80.01,
+            "link-to-input": -80.01,
+            "link-to-sidechain": -80.01,
+            "lookahead": 20.0,
+            "mode": "Herm Wide",
+            "output-gain": 0.0,
+            "oversampling": "None",
+            "release": 20.0,
+            "sidechain-preamp": 0.0,
+            "sidechain-to-input": -80.01,
+            "sidechain-to-link": -80.01,
+            "sidechain-type": "Internal",
+            "stereo-link": 100.0,
+            "threshold": 0.0
+        },
+        "loudness#0": {
+            "bypass": true,
+            "clipping": false,
+            "clipping-range": 6.0,
+            "fft": "8192",
+            "iir-approximation": "Normal",
+            "input-gain": 0.0,
+            "mode": "FFT",
+            "output-gain": 0.0,
+            "std": "ISO226-2023",
+            "volume": 2.0
+        },
+        "pitch#0": {
+            "anti-alias": true,
+            "bypass": true,
+            "cents": 0.0,
+            "dry": -100.0,
+            "input-gain": 0.0,
+            "octaves": 0.0,
+            "output-gain": 0.0,
+            "overlap-length": 16,
+            "quick-seek": true,
+            "rate-difference": 0.0,
+            "seek-window": 25,
+            "semitones": 3.0,
+            "sequence-length": 50,
+            "tempo-difference": 0.0,
+            "wet": 1.5
+        },
+        "plugins_order": [
+            "stereo_tools#0",
+            "equalizer#0",
+            "exciter#0",
+            "crystalizer#0",
+            "expander#0",
+            "loudness#0",
+            "pitch#0",
+            "bass_loudness#0",
+            "bass_enhancer#0",
+            "limiter#0"
+        ],
+        "stereo_tools#0": {
+            "balance-in": 0.0,
+            "balance-out": 0.0,
+            "bypass": true,
+            "delay": -0.1,
+            "dry": -100.0,
+            "input-gain": 0.0,
+            "middle-level": 0.0,
+            "middle-panorama": 0.0,
+            "mode": "LR > LR (Stereo Default)",
+            "mutel": false,
+            "muter": false,
+            "output-gain": 0.0,
+            "phasel": false,
+            "phaser": false,
+            "sc-level": 1.0,
+            "side-balance": 0.0,
+            "side-level": 0.0,
+            "softclip": false,
+            "stereo-base": 0.0,
+            "stereo-phase": 180.0,
+            "wet": 0.0
+        }
+    }
+}
